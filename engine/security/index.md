@@ -21,7 +21,7 @@ There are four major areas to consider when reviewing Docker security:
 
 ## Kernel namespaces
 
-Docker containers are very similar to LXC containers, and they have
+Docker containers are very similar to LXC containers (a userspace interface for the Linux kernel containment features), and they have
 similar security features. When you start a container with
 `docker run`, behind the scenes Docker creates a set of namespaces and control
 groups for the container.
@@ -113,7 +113,7 @@ You can also expose the REST API over HTTP if you explicitly decide to do so.
 However, if you do that, be aware of the above mentioned security
 implications.
 Note that even if you have a firewall to limit accesses to the REST API 
-endpoint from other hosts in the network, the endpoint can be still accessible
+endpoint from other hosts in the network, the endpoint can still be accessible
 from containers, and it can easily result in the privilege escalation.
 Therefore it is *mandatory* to secure API endpoints with 
 [HTTPS and certificates](https.md).
